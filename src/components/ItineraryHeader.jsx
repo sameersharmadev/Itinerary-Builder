@@ -1,4 +1,5 @@
 import React from 'react';
+import travelIcons from '../assets/travel_icons.png';
 
 const ItineraryHeader = ({ formData }) => {
   const calculateTripDuration = () => {
@@ -37,7 +38,7 @@ const ItineraryHeader = ({ formData }) => {
           {/* Travel Icons */}
           <div className="flex justify-center items-center gap-4">
             <img 
-              src="/src/assets/travel_icons.png" 
+              src={travelIcons}
               alt="Travel Icons"
               className="h-8"
               style={{ filter: 'brightness(0) invert(1)' }} // Makes icons white
