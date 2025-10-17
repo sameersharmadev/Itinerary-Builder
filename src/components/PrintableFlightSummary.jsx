@@ -8,7 +8,6 @@ const PrintableFlightSummary = ({ flights }) => {
     };
 
     const getAirportCode = (city) => {
-        // Common airport codes mapping
         const airportCodes = {
             'Delhi': 'DEL',
             'Mumbai': 'BOM',
@@ -37,7 +36,6 @@ const PrintableFlightSummary = ({ flights }) => {
             <div className="space-y-3 mb-6">
                 {flights.map((flight, index) => (
                     <div key={index} className="flex items-center" style={{ border: '1px solid #541C9C', borderRadius: '8px' }}>
-                        {/* Date Section - Arrow Shape */}
                         <div
                             className="relative px-6 py-2 text-center font-semibold text-sm flex items-center justify-center"
                             style={{
@@ -50,7 +48,6 @@ const PrintableFlightSummary = ({ flights }) => {
                             }}
                         >
                             {formatDate(flight.date)}
-                            {/* Arrow pointing right */}
                             <div
                                 className="absolute right-0 top-0 h-full w-4"
                                 style={{

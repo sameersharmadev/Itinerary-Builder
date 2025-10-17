@@ -21,3 +21,11 @@ input{
     background-color: #321E5D;
   }
 }
+.scrollbar-hide {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;  
+}

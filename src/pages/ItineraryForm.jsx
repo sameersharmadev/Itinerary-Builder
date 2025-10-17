@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { FaCalendarAlt, FaUsers, FaPlane, FaHotel, FaMapMarkedAlt, FaCheck, FaArrowLeft, FaArrowRight, FaTrash, FaEye, FaBars, FaTimes, FaUser } from 'react-icons/fa';
+import { useState } from 'react';
+import { FaCalendarAlt, FaUsers, FaPlane, FaHotel, FaMapMarkedAlt, FaCheck, FaArrowLeft, FaArrowRight, FaTrash, FaEye, FaBars, FaTimes, FaUser, FaStickyNote, FaClipboardList, FaChartBar, FaRunning, FaCreditCard, FaPassport } from 'react-icons/fa';
 import InputField from '../components/InputField';
-import SimplePDFGenerator from '../components/SimplePDFGenerator';
 import PDFPreview from '../components/PDFPreview';
 
 export function ItineraryForm() {
@@ -25,7 +24,7 @@ export function ItineraryForm() {
             },
             {
                 date: "2024-01-10",
-                airline: "Fly Air India", 
+                airline: "Fly Air India",
                 flightNumber: "AX-123",
                 from: "Delhi",
                 to: "Singapore"
@@ -33,7 +32,7 @@ export function ItineraryForm() {
             {
                 date: "2024-01-10",
                 airline: "Fly Air India",
-                flightNumber: "AX-123", 
+                flightNumber: "AX-123",
                 from: "Delhi",
                 to: "Singapore"
             },
@@ -54,7 +53,7 @@ export function ItineraryForm() {
                 hotelName: "Marina Bay Sands\nLuxury Suite"
             },
             {
-                city: "Singapore", 
+                city: "Singapore",
                 checkIn: "2024-01-12",
                 checkOut: "2024-01-14",
                 nights: 2,
@@ -72,7 +71,7 @@ export function ItineraryForm() {
             },
             {
                 dayNumber: 2,
-                date: "2024-01-11", 
+                date: "2024-01-11",
                 description: "Cultural Singapore",
                 morning: "• Breakfast at hotel\n• Visit Chinatown\n• Buddha Tooth Relic Temple",
                 afternoon: "• Little India exploration\n• Mustafa Centre shopping\n• Indian cuisine lunch",
@@ -97,13 +96,153 @@ export function ItineraryForm() {
         ],
         exclusions: [
             "• International flights",
-            "• Personal expenses", 
+            "• Personal expenses",
             "• Travel insurance",
             "• Tips and gratuities",
             "• Lunch and dinner (unless specified)",
             "• Visa fees"
         ],
-        notes: "This is a sample itinerary for Singapore. All timings are flexible and can be adjusted based on your preferences. Weather conditions may affect outdoor activities."
+        notes: "This is a sample itinerary for Singapore. All timings are flexible and can be adjusted based on your preferences. Weather conditions may affect outdoor activities.",
+        importantNotes: [
+            {
+                point: "Passport Validity",
+                details: "Ensure your passport is valid for at least 6 months from the date of travel. Singapore requires minimum 6 months validity for entry."
+            },
+            {
+                point: "Weather Considerations",
+                details: "Singapore has a tropical climate. Pack light cotton clothes and always carry an umbrella. Indoor venues are heavily air-conditioned."
+            },
+            {
+                point: "Currency Exchange",
+                details: "Singapore Dollar (SGD) is the local currency. Credit cards are widely accepted. Carry some cash for local markets and street food."
+            },
+            {
+                point: "Local Customs",
+                details: "Singapore has strict laws regarding chewing gum, jaywalking, and littering. Always follow local guidelines and regulations."
+            }
+        ],
+
+        scopeOfService: [
+            {
+                service: "Accommodation Services",
+                details: "Booking and confirmation of hotels as per itinerary. Room upgrades subject to availability. Daily breakfast included at all properties."
+            },
+            {
+                service: "Transportation Services",
+                details: "Airport transfers in private vehicle. All sightseeing in air-conditioned coach. Local transport for specified activities included."
+            },
+            {
+                service: "Tour Guide Services",
+                details: "English speaking local guide for city tours. Guide available for 8 hours per day. Additional guide time can be arranged at extra cost."
+            },
+            {
+                service: "Assistance Services",
+                details: "24/7 emergency contact support. Local representative assistance. Help with booking additional activities and restaurants."
+            }
+        ],
+
+        inclusionSummary: [
+            {
+                category: "Accommodation",
+                count: "5",
+                details: "Nights at 4-star hotels",
+                comments: "Twin sharing basis, breakfast included"
+            },
+            {
+                category: "Meals",
+                count: "5",
+                details: "Breakfast at hotels",
+                comments: "Continental and local options available"
+            },
+            {
+                category: "Transportation",
+                count: "All",
+                details: "Airport transfers and sightseeing",
+                comments: "Private air-conditioned vehicles"
+            },
+            {
+                category: "Attractions",
+                count: "8",
+                details: "Entry tickets included",
+                comments: "Gardens by the Bay, Universal Studios, etc."
+            },
+            {
+                category: "Guide Services",
+                count: "3",
+                details: "Days of guided tours",
+                comments: "English speaking local guide"
+            }
+        ],
+
+        activityTable: [
+            {
+                city: "Singapore",
+                activity: "Gardens by the Bay",
+                type: "Sightseeing",
+                timeRequired: "3-4 Hours"
+            },
+            {
+                city: "Singapore",
+                activity: "Universal Studios",
+                type: "Adventure",
+                timeRequired: "Full Day"
+            },
+            {
+                city: "Singapore",
+                activity: "Marina Bay Sands SkyPark",
+                type: "Sightseeing",
+                timeRequired: "2-3 Hours"
+            },
+            {
+                city: "Singapore",
+                activity: "Chinatown Walking Tour",
+                type: "Cultural",
+                timeRequired: "2-3 Hours"
+            },
+            {
+                city: "Singapore",
+                activity: "Sentosa Island",
+                type: "Leisure",
+                timeRequired: "Half Day"
+            },
+        ],
+
+        paymentPlan: [
+            {
+                heading: "Booking Confirmation",
+                details: "Initial payment to confirm your booking and secure hotel reservations",
+                installment: "1st Installment",
+                amount: "₹25,000",
+                dueDate: "2023-12-15"
+            },
+            {
+                heading: "Second Payment",
+                details: "Intermediate payment for flight bookings and activity confirmations",
+                installment: "2nd Installment",
+                amount: "₹35,000",
+                dueDate: "2024-01-01"
+            },
+            {
+                heading: "Final Payment",
+                details: "Final balance payment including all remaining services and contingencies",
+                installment: "Final Payment",
+                amount: "₹15,000",
+                dueDate: "2024-01-05"
+            }
+        ],
+
+        visaDetails: [
+            {
+                visaType: "Tourist Visa",
+                validity: "30 Days",
+                processingDate: "2024-01-05"
+            },
+            {
+                visaType: "Entry Permit",
+                validity: "Single Entry",
+                processingDate: "2024-01-05"
+            }
+        ]
     });
 
     const [tempFlight, setTempFlight] = useState({
@@ -122,6 +261,42 @@ export function ItineraryForm() {
         hotelName: '',
     });
 
+    const [tempImportantNote, setTempImportantNote] = useState({
+        point: '',
+        details: ''
+    });
+
+    const [tempScopeOfService, setTempScopeOfService] = useState({
+        service: '',
+        details: ''
+    });
+
+    const [tempInclusionSummary, setTempInclusionSummary] = useState({
+        category: '',
+        count: '',
+        details: '',
+        comments: ''
+    });
+
+    const [tempActivity, setTempActivity] = useState({
+        city: '',
+        activity: '',
+        type: '',
+        timeRequired: ''
+    });
+
+    const [tempPaymentPlan, setTempPaymentPlan] = useState({
+        installment: '',
+        amount: '',
+        dueDate: ''
+    });
+
+    const [tempVisaDetail, setTempVisaDetail] = useState({
+        visaType: '',
+        validity: '',
+        processingDate: ''
+    });
+
     const [showPDFPreview, setShowPDFPreview] = useState(false);
 
     const steps = [
@@ -129,8 +304,10 @@ export function ItineraryForm() {
         { id: 2, title: "Flights", icon: FaPlane },
         { id: 3, title: "Hotels", icon: FaHotel },
         { id: 4, title: "Activities", icon: FaCalendarAlt },
-        { id: 5, title: "Final Details", icon: FaCheck },
-        { id: 6, title: "Review", icon: FaEye }
+        { id: 5, title: "Information", icon: FaStickyNote },
+        { id: 6, title: "Payments", icon: FaCreditCard },
+        { id: 7, title: "Details", icon: FaCheck },
+        { id: 8, title: "Review", icon: FaEye }
     ];
 
     const updateFormData = (field, value) => {
@@ -215,8 +392,110 @@ export function ItineraryForm() {
         }));
     };
 
+    const addImportantNote = () => {
+        if (tempImportantNote.point && tempImportantNote.details) {
+            setFormData(prev => ({
+                ...prev,
+                importantNotes: [...prev.importantNotes, tempImportantNote]
+            }));
+            setTempImportantNote({ point: '', details: '' });
+        }
+    };
+
+    const removeImportantNote = (index) => {
+        setFormData(prev => ({
+            ...prev,
+            importantNotes: prev.importantNotes.filter((_, i) => i !== index)
+        }));
+    };
+
+    const addScopeOfService = () => {
+        if (tempScopeOfService.service && tempScopeOfService.details) {
+            setFormData(prev => ({
+                ...prev,
+                scopeOfService: [...prev.scopeOfService, tempScopeOfService]
+            }));
+            setTempScopeOfService({ service: '', details: '' });
+        }
+    };
+
+    const removeScopeOfService = (index) => {
+        setFormData(prev => ({
+            ...prev,
+            scopeOfService: prev.scopeOfService.filter((_, i) => i !== index)
+        }));
+    };
+
+    const addInclusionSummary = () => {
+        if (tempInclusionSummary.category && tempInclusionSummary.count && tempInclusionSummary.details) {
+            setFormData(prev => ({
+                ...prev,
+                inclusionSummary: [...prev.inclusionSummary, tempInclusionSummary]
+            }));
+            setTempInclusionSummary({ category: '', count: '', details: '', comments: '' });
+        }
+    };
+
+    const removeInclusionSummary = (index) => {
+        setFormData(prev => ({
+            ...prev,
+            inclusionSummary: prev.inclusionSummary.filter((_, i) => i !== index)
+        }));
+    };
+
+    const addActivity = () => {
+        if (tempActivity.city && tempActivity.activity && tempActivity.type && tempActivity.timeRequired) {
+            setFormData(prev => ({
+                ...prev,
+                activityTable: [...prev.activityTable, tempActivity]
+            }));
+            setTempActivity({ city: '', activity: '', type: '', timeRequired: '' });
+        }
+    };
+
+    const removeActivity = (index) => {
+        setFormData(prev => ({
+            ...prev,
+            activityTable: prev.activityTable.filter((_, i) => i !== index)
+        }));
+    };
+
+    const addPaymentPlan = () => {
+        if (tempPaymentPlan.heading && tempPaymentPlan.details && tempPaymentPlan.installment && tempPaymentPlan.amount && tempPaymentPlan.dueDate) {
+            setFormData(prev => ({
+                ...prev,
+                paymentPlan: [...prev.paymentPlan, tempPaymentPlan]
+            }));
+            setTempPaymentPlan({ heading: '', details: '', installment: '', amount: '', dueDate: '' });
+        }
+    };
+
+    const removePaymentPlan = (index) => {
+        setFormData(prev => ({
+            ...prev,
+            paymentPlan: prev.paymentPlan.filter((_, i) => i !== index)
+        }));
+    };
+
+    const addVisaDetail = () => {
+        if (tempVisaDetail.visaType && tempVisaDetail.validity && tempVisaDetail.processingDate) {
+            setFormData(prev => ({
+                ...prev,
+                visaDetails: [...prev.visaDetails, tempVisaDetail]
+            }));
+            setTempVisaDetail({ visaType: '', validity: '', processingDate: '' });
+        }
+    };
+
+    const removeVisaDetail = (index) => {
+        setFormData(prev => ({
+            ...prev,
+            visaDetails: prev.visaDetails.filter((_, i) => i !== index)
+        }));
+    };
+
     const nextStep = () => {
-        if (currentStep < 6) setCurrentStep(currentStep + 1);
+        if (currentStep < steps.length) setCurrentStep(currentStep + 1);
     };
 
     const prevStep = () => {
@@ -378,7 +657,7 @@ export function ItineraryForm() {
                                         className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 w-full"
                                     />
                                 </div>
-                                
+
                                 <InputField
                                     label="Airline"
                                     type="text"
@@ -386,7 +665,7 @@ export function ItineraryForm() {
                                     onChange={(e) => setTempFlight({ ...tempFlight, airline: e.target.value })}
                                     placeholder="Airline"
                                 />
-                                
+
                                 <InputField
                                     label="Flight Number"
                                     type="text"
@@ -394,7 +673,7 @@ export function ItineraryForm() {
                                     onChange={(e) => setTempFlight({ ...tempFlight, flightNumber: e.target.value })}
                                     placeholder="Flight Number"
                                 />
-                                
+
                                 <InputField
                                     label="From"
                                     type="text"
@@ -402,7 +681,7 @@ export function ItineraryForm() {
                                     onChange={(e) => setTempFlight({ ...tempFlight, from: e.target.value })}
                                     placeholder="From"
                                 />
-                                
+
                                 <InputField
                                     label="To"
                                     type="text"
@@ -462,7 +741,7 @@ export function ItineraryForm() {
                                     onChange={(e) => setTempHotel({ ...tempHotel, hotelName: e.target.value })}
                                     placeholder="Hotel Name"
                                 />
-                                
+
                                 <InputField
                                     label="City"
                                     type="text"
@@ -470,7 +749,7 @@ export function ItineraryForm() {
                                     onChange={(e) => setTempHotel({ ...tempHotel, city: e.target.value })}
                                     placeholder="City"
                                 />
-                                
+
                                 <div>
                                     <label className="text-gray-700 font-medium mb-2 block">Check In</label>
                                     <input
@@ -480,7 +759,7 @@ export function ItineraryForm() {
                                         className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 w-full"
                                     />
                                 </div>
-                                
+
                                 <div>
                                     <label className="text-gray-700 font-medium mb-2 block">Check Out</label>
                                     <input
@@ -539,7 +818,7 @@ export function ItineraryForm() {
                                                 />
                                             </div>
                                         </div>
-                                        
+
                                         <InputField
                                             label="Day Description"
                                             type="text"
@@ -596,6 +875,405 @@ export function ItineraryForm() {
 
             case 5:
                 return (
+                    <div className="space-y-8">
+                        <div className="flex items-center mb-8">
+                            <div className="text-left">
+                                <h2 className="text-3xl font-bold color-purple mb-2">Additional Information</h2>
+                                <p className="text-gray-600">Important notes and activity details</p>
+                            </div>
+                        </div>
+
+                        {/* Important Notes Section */}
+                        <div className="space-y-6">
+                            <h3 className="text-xl font-semibold color-purple">Important Notes</h3>
+
+                            {formData.importantNotes.length > 0 && (
+                                <div className="space-y-3 mb-6">
+                                    <h4 className="font-semibold text-gray-700">Added Notes:</h4>
+                                    {formData.importantNotes.map((note, index) => (
+                                        <div key={index} className="flex items-center justify-between bg-gray-50 p-4 rounded-lg">
+                                            <div className="flex-1">
+                                                <span className="font-medium">{note.point}</span>
+                                                <div className="text-sm text-gray-600 mt-1">{note.details}</div>
+                                            </div>
+                                            <button
+                                                onClick={() => removeImportantNote(index)}
+                                                className="text-red-500 hover:text-red-700 p-2 rounded transition"
+                                            >
+                                                <FaTrash />
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-6 border border-gray-200 rounded-lg">
+                                <InputField
+                                    label="Point"
+                                    type="text"
+                                    value={tempImportantNote.point}
+                                    onChange={(e) => setTempImportantNote({ ...tempImportantNote, point: e.target.value })}
+                                    placeholder="e.g., Passport Validity"
+                                />
+                                <div>
+                                    <label className="text-gray-700 font-medium mb-2 block">Details</label>
+                                    <textarea
+                                        value={tempImportantNote.details}
+                                        onChange={(e) => setTempImportantNote({ ...tempImportantNote, details: e.target.value })}
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                        rows="3"
+                                        placeholder="Detailed explanation..."
+                                    />
+                                </div>
+                                <div className="md:col-span-2">
+                                    <button
+                                        onClick={addImportantNote}
+                                        className="px-6 py-2 bg-purple text-white rounded-lg transition"
+                                    >
+                                        Add Important Note
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Activity Table Section */}
+                        <div className="space-y-6">
+                            <h3 className="text-xl font-semibold color-purple">Activity Table</h3>
+
+                            {formData.activityTable.length > 0 && (
+                                <div className="space-y-3 mb-6">
+                                    <h4 className="font-semibold text-gray-700">Added Activities:</h4>
+                                    {formData.activityTable.map((activity, index) => (
+                                        <div key={index} className="flex items-center justify-between bg-gray-50 p-4 rounded-lg">
+                                            <div className="flex-1 grid grid-cols-4 gap-4">
+                                                <div><span className="font-medium">City:</span> {activity.city}</div>
+                                                <div><span className="font-medium">Activity:</span> {activity.activity}</div>
+                                                <div><span className="font-medium">Type:</span> {activity.type}</div>
+                                                <div><span className="font-medium">Time:</span> {activity.timeRequired}</div>
+                                            </div>
+                                            <button
+                                                onClick={() => removeActivity(index)}
+                                                className="text-red-500 hover:text-red-700 p-2 rounded transition"
+                                            >
+                                                <FaTrash />
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
+                            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 p-6 border border-gray-200 rounded-lg">
+                                <InputField
+                                    label="City"
+                                    type="text"
+                                    value={tempActivity.city}
+                                    onChange={(e) => setTempActivity({ ...tempActivity, city: e.target.value })}
+                                    placeholder="Singapore"
+                                />
+                                <InputField
+                                    label="Activity"
+                                    type="text"
+                                    value={tempActivity.activity}
+                                    onChange={(e) => setTempActivity({ ...tempActivity, activity: e.target.value })}
+                                    placeholder="Gardens by the Bay"
+                                />
+                                <InputField
+                                    label="Type"
+                                    type="text"
+                                    value={tempActivity.type}
+                                    onChange={(e) => setTempActivity({ ...tempActivity, type: e.target.value })}
+                                    placeholder="Sightseeing"
+                                />
+                                <InputField
+                                    label="Time Required"
+                                    type="text"
+                                    value={tempActivity.timeRequired}
+                                    onChange={(e) => setTempActivity({ ...tempActivity, timeRequired: e.target.value })}
+                                    placeholder="3-4 Hours"
+                                />
+                                <div className="md:col-span-4">
+                                    <button
+                                        onClick={addActivity}
+                                        className="px-6 py-2 bg-purple text-white rounded-lg transition"
+                                    >
+                                        Add Activity
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                );
+
+            case 6:
+                return (
+                    <div className="space-y-8">
+                        <div className="flex items-center mb-8">
+                            <div className="text-left">
+                                <h2 className="text-3xl font-bold color-purple mb-2">Services & Payment</h2>
+                                <p className="text-gray-600">Service details and payment information</p>
+                            </div>
+                        </div>
+
+                        {/* Scope of Service Section */}
+                        <div className="space-y-6">
+                            <h3 className="text-xl font-semibold color-purple">Scope of Service</h3>
+
+                            {formData.scopeOfService.length > 0 && (
+                                <div className="space-y-3 mb-6">
+                                    <h4 className="font-semibold text-gray-700">Added Services:</h4>
+                                    {formData.scopeOfService.map((service, index) => (
+                                        <div key={index} className="flex items-center justify-between bg-gray-50 p-4 rounded-lg">
+                                            <div className="flex-1">
+                                                <span className="font-medium">{service.service}</span>
+                                                <div className="text-sm text-gray-600 mt-1">{service.details}</div>
+                                            </div>
+                                            <button
+                                                onClick={() => removeScopeOfService(index)}
+                                                className="text-red-500 hover:text-red-700 p-2 rounded transition"
+                                            >
+                                                <FaTrash />
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-6 border border-gray-200 rounded-lg">
+                                <InputField
+                                    label="Service"
+                                    type="text"
+                                    value={tempScopeOfService.service}
+                                    onChange={(e) => setTempScopeOfService({ ...tempScopeOfService, service: e.target.value })}
+                                    placeholder="e.g., Accommodation Services"
+                                />
+                                <div>
+                                    <label className="text-gray-700 font-medium mb-2 block">Details</label>
+                                    <textarea
+                                        value={tempScopeOfService.details}
+                                        onChange={(e) => setTempScopeOfService({ ...tempScopeOfService, details: e.target.value })}
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                        rows="3"
+                                        placeholder="Service details..."
+                                    />
+                                </div>
+                                <div className="md:col-span-2">
+                                    <button
+                                        onClick={addScopeOfService}
+                                        className="px-6 py-2 bg-purple text-white rounded-lg transition"
+                                    >
+                                        Add Service
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Inclusion Summary Section */}
+                        <div className="space-y-6">
+                            <h3 className="text-xl font-semibold color-purple">Inclusion Summary</h3>
+
+                            {formData.inclusionSummary.length > 0 && (
+                                <div className="space-y-3 mb-6">
+                                    <h4 className="font-semibold text-gray-700">Added Inclusions:</h4>
+                                    {formData.inclusionSummary.map((inclusion, index) => (
+                                        <div key={index} className="flex items-center justify-between bg-gray-50 p-4 rounded-lg">
+                                            <div className="flex-1 grid grid-cols-4 gap-4">
+                                                <div><span className="font-medium">Category:</span> {inclusion.category}</div>
+                                                <div><span className="font-medium">Count:</span> {inclusion.count}</div>
+                                                <div><span className="font-medium">Details:</span> {inclusion.details}</div>
+                                                <div><span className="font-medium">Comments:</span> {inclusion.comments}</div>
+                                            </div>
+                                            <button
+                                                onClick={() => removeInclusionSummary(index)}
+                                                className="text-red-500 hover:text-red-700 p-2 rounded transition"
+                                            >
+                                                <FaTrash />
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
+                            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 p-6 border border-gray-200 rounded-lg">
+                                <InputField
+                                    label="Category"
+                                    type="text"
+                                    value={tempInclusionSummary.category}
+                                    onChange={(e) => setTempInclusionSummary({ ...tempInclusionSummary, category: e.target.value })}
+                                    placeholder="Accommodation"
+                                />
+                                <InputField
+                                    label="Count"
+                                    type="text"
+                                    value={tempInclusionSummary.count}
+                                    onChange={(e) => setTempInclusionSummary({ ...tempInclusionSummary, count: e.target.value })}
+                                    placeholder="5"
+                                />
+                                <InputField
+                                    label="Details"
+                                    type="text"
+                                    value={tempInclusionSummary.details}
+                                    onChange={(e) => setTempInclusionSummary({ ...tempInclusionSummary, details: e.target.value })}
+                                    placeholder="Nights at hotels"
+                                />
+                                <InputField
+                                    label="Comments"
+                                    type="text"
+                                    value={tempInclusionSummary.comments}
+                                    onChange={(e) => setTempInclusionSummary({ ...tempInclusionSummary, comments: e.target.value })}
+                                    placeholder="Twin sharing basis"
+                                />
+                                <div className="md:col-span-4">
+                                    <button
+                                        onClick={addInclusionSummary}
+                                        className="px-6 py-2 bg-purple text-white rounded-lg transition"
+                                    >
+                                        Add Inclusion
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Payment Plan Section */}
+                        <div className="space-y-6">
+                            <h3 className="text-xl font-semibold color-purple">Payment Plan</h3>
+
+                            {formData.paymentPlan.length > 0 && (
+                                <div className="space-y-3 mb-6">
+                                    <h4 className="font-semibold text-gray-700">Added Payments:</h4>
+                                    {formData.paymentPlan.map((payment, index) => (
+                                        <div key={index} className="flex items-center justify-between bg-gray-50 p-4 rounded-lg">
+                                            <div className="flex-1">
+                                                <span className="font-medium">{payment.heading} - {payment.installment}</span>
+                                                <div className="text-sm text-gray-600 mt-1">{payment.details}</div>
+                                                <div className="text-sm font-medium mt-1">Amount: {payment.amount} | Due: {payment.dueDate}</div>
+                                            </div>
+                                            <button
+                                                onClick={() => removePaymentPlan(index)}
+                                                className="text-red-500 hover:text-red-700 p-2 rounded transition"
+                                            >
+                                                <FaTrash />
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-6 border border-gray-200 rounded-lg">
+                                <InputField
+                                    label="Heading"
+                                    type="text"
+                                    value={tempPaymentPlan.heading}
+                                    onChange={(e) => setTempPaymentPlan({ ...tempPaymentPlan, heading: e.target.value })}
+                                    placeholder="Booking Confirmation"
+                                />
+                                <InputField
+                                    label="Installment"
+                                    type="text"
+                                    value={tempPaymentPlan.installment}
+                                    onChange={(e) => setTempPaymentPlan({ ...tempPaymentPlan, installment: e.target.value })}
+                                    placeholder="1st Installment"
+                                />
+                                <div className="md:col-span-2">
+                                    <label className="text-gray-700 font-medium mb-2 block">Details</label>
+                                    <textarea
+                                        value={tempPaymentPlan.details}
+                                        onChange={(e) => setTempPaymentPlan({ ...tempPaymentPlan, details: e.target.value })}
+                                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                        rows="2"
+                                        placeholder="Payment details..."
+                                    />
+                                </div>
+                                <InputField
+                                    label="Amount"
+                                    type="text"
+                                    value={tempPaymentPlan.amount}
+                                    onChange={(e) => setTempPaymentPlan({ ...tempPaymentPlan, amount: e.target.value })}
+                                    placeholder="₹25,000"
+                                />
+                                <div>
+                                    <label className="text-gray-700 font-medium mb-2 block">Due Date</label>
+                                    <input
+                                        type="date"
+                                        value={tempPaymentPlan.dueDate}
+                                        onChange={(e) => setTempPaymentPlan({ ...tempPaymentPlan, dueDate: e.target.value })}
+                                        className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 w-full"
+                                    />
+                                </div>
+                                <div className="md:col-span-2">
+                                    <button
+                                        onClick={addPaymentPlan}
+                                        className="px-6 py-2 bg-purple text-white rounded-lg transition"
+                                    >
+                                        Add Payment
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Visa Details Section */}
+                        <div className="space-y-6">
+                            <h3 className="text-xl font-semibold color-purple">Visa Details</h3>
+
+                            {formData.visaDetails.length > 0 && (
+                                <div className="space-y-3 mb-6">
+                                    <h4 className="font-semibold text-gray-700">Added Visa Details:</h4>
+                                    {formData.visaDetails.map((visa, index) => (
+                                        <div key={index} className="flex items-center justify-between bg-gray-50 p-4 rounded-lg">
+                                            <div className="flex-1 grid grid-cols-3 gap-4">
+                                                <div><span className="font-medium">Type:</span> {visa.visaType}</div>
+                                                <div><span className="font-medium">Validity:</span> {visa.validity}</div>
+                                                <div><span className="font-medium">Processing:</span> {visa.processingDate}</div>
+                                            </div>
+                                            <button
+                                                onClick={() => removeVisaDetail(index)}
+                                                className="text-red-500 hover:text-red-700 p-2 rounded transition"
+                                            >
+                                                <FaTrash />
+                                            </button>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-6 border border-gray-200 rounded-lg">
+                                <InputField
+                                    label="Visa Type"
+                                    type="text"
+                                    value={tempVisaDetail.visaType}
+                                    onChange={(e) => setTempVisaDetail({ ...tempVisaDetail, visaType: e.target.value })}
+                                    placeholder="Tourist Visa"
+                                />
+                                <InputField
+                                    label="Validity"
+                                    type="text"
+                                    value={tempVisaDetail.validity}
+                                    onChange={(e) => setTempVisaDetail({ ...tempVisaDetail, validity: e.target.value })}
+                                    placeholder="30 Days"
+                                />
+                                <div>
+                                    <label className="text-gray-700 font-medium mb-2 block">Processing Date</label>
+                                    <input
+                                        type="date"
+                                        value={tempVisaDetail.processingDate}
+                                        onChange={(e) => setTempVisaDetail({ ...tempVisaDetail, processingDate: e.target.value })}
+                                        className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-blue-500 w-full"
+                                    />
+                                </div>
+                                <div className="md:col-span-3">
+                                    <button
+                                        onClick={addVisaDetail}
+                                        className="px-6 py-2 bg-purple text-white rounded-lg transition"
+                                    >
+                                        Add Visa Detail
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                );
+
+            case 7:
+                return (
                     <div className="space-y-6">
                         <div className="flex items-center mb-8">
                             <div className="text-left">
@@ -641,7 +1319,7 @@ export function ItineraryForm() {
                     </div>
                 );
 
-            case 6:
+            case 8:
                 return (
                     <div className="space-y-6">
                         <div className="flex items-center mb-8">
@@ -650,138 +1328,10 @@ export function ItineraryForm() {
                                 <p className="text-gray-600">Review your complete itinerary and generate PDF</p>
                             </div>
                         </div>
-
-                        <div className="border border-gray-200 rounded-lg p-6 min-h-[120px]">
-                            <h3 className="text-lg font-semibold color-purple mb-4">Trip Overview</h3>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-700">
-                                <div>
-                                    <p><strong>Trip Title:</strong> {formData.title || 'Not specified'}</p>
-                                    <p><strong>Traveler Name:</strong> {formData.travelerName || 'Not specified'}</p>
-                                    <p><strong>Destination:</strong> {formData.destination || 'Not specified'}</p>
-                                    <p><strong>Departure From:</strong> {formData.departure_from || 'Not specified'}</p>
-                                </div>
-                                <div>
-                                    <p><strong>Duration:</strong> {calculateTripDuration() || 'Not specified'}</p>
-                                    <p><strong>Travelers:</strong> {formData.travelers || 'Not specified'}</p>
-                                    <p><strong>Departure:</strong> {formData.departure ? formatDate(formData.departure) : 'Not specified'}</p>
-                                </div>
-                            </div>
+                        <div className="border border-gray-200 rounded-lg p-6 mt-8">                         
+                            <PDFPreview formData={formData} />
                         </div>
 
-                        {formData.flights.length > 0 && (
-                            <div className="border border-gray-200 rounded-lg p-6">
-                                <h3 className="text-lg font-semibold text-gray-800 mb-4">Flight Details</h3>
-                                <div className="space-y-3">
-                                    {formData.flights.map((flight, index) => (
-                                        <div key={index} className="flex justify-between items-center bg-gray-50 p-3 rounded">
-                                            <span className="font-medium">{flight.airline} ({flight.flightNumber})</span>
-                                            <span className="text-sm text-gray-600">
-                                                {formatDate(flight.date)} • {flight.from} → {flight.to}
-                                            </span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-
-                        {formData.hotels.length > 0 && (
-                            <div className="border border-gray-200 rounded-lg p-6">
-                                <h3 className="text-lg font-semibold text-gray-800 mb-4">Accommodation</h3>
-                                <div className="space-y-3">
-                                    {formData.hotels.map((hotel, index) => (
-                                        <div key={index} className="flex justify-between items-center bg-gray-50 p-3 rounded">
-                                            <span className="font-medium">{hotel.hotelName}</span>
-                                            <span className="text-sm text-gray-600">
-                                                {hotel.city} • {hotel.checkIn} to {hotel.checkOut} ({hotel.nights} nights)
-                                            </span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-
-                        {formData.days.length > 0 && (
-                            <div className="border border-gray-200 rounded-lg p-6">
-                                <h3 className="text-lg font-semibold text-gray-800 mb-4">Daily Itinerary</h3>
-                                <div className="space-y-4">
-                                    {formData.days.map((day, index) => (
-                                        <div key={index} className="border-l-4 border-gray-400 pl-4">
-                                            <h4 className="font-semibold text-gray-800">
-                                                Day {day.dayNumber}: {day.description} 
-                                                {day.date && <span className="text-sm text-gray-600 ml-2">({formatDate(day.date)})</span>}
-                                            </h4>
-                                            <div className="grid grid-cols-1 md:grid-cols-3 gap-2 mt-2 text-sm text-gray-600">
-                                                {day.morning && <div><strong>Morning:</strong> {day.morning}</div>}
-                                                {day.afternoon && <div><strong>Afternoon:</strong> {day.afternoon}</div>}
-                                                {day.evening && <div><strong>Evening:</strong> {day.evening}</div>}
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {formData.inclusions.some(item => item.trim()) && (
-                                <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-                                    <h3 className="text-lg font-semibold color-purple mb-3">Inclusions</h3>
-                                    <ul className="text-sm text-gray-700 space-y-1">
-                                        {formData.inclusions.filter(item => item.trim()).map((item, index) => (
-                                            <li key={index}>• {item}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            )}
-
-                            {formData.exclusions.some(item => item.trim()) && (
-                                <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-                                    <h3 className="text-lg font-semibold color-purple mb-3">Exclusions</h3>
-                                    <ul className="text-sm text-gray-700 space-y-1">
-                                        {formData.exclusions.filter(item => item.trim()).map((item, index) => (
-                                            <li key={index}>• {item}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            )}
-                        </div>
-
-                        {formData.notes && (
-                            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
-                                <h3 className="text-lg font-semibold color-purple mb-3">Additional Notes</h3>
-                                <p className="text-sm text-gray-700">{formData.notes}</p>
-                            </div>
-                        )}
-
-                        <div className="border border-gray-200 rounded-lg p-6">
-                            <h3 className="text-lg font-semibold color-purple mb-4">Generate PDF</h3>
-                            
-                            <div className="flex gap-4 items-center justify-center">
-                                <button
-                                    onClick={() => setShowPDFPreview(!showPDFPreview)}
-                                    className="px-6 py-3 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition font-medium"
-                                >
-                                    {showPDFPreview ? 'Hide Preview' : 'Preview PDF'}
-                                </button>
-                                
-                                <SimplePDFGenerator formData={formData} />
-                            </div>
-
-                            {showPDFPreview && (
-                                <div className="mt-6 border border-gray-300 rounded-lg overflow-hidden">
-                                    <PDFPreview formData={formData} />
-                                </div>
-                            )}
-                        </div>
-
-                        <button
-                            onClick={() => {
-                                console.log('Final Form Data:', formData);
-                                alert('Itinerary created successfully! Check console for data.');
-                            }}
-                            className="w-full py-4 bg-purple text-white rounded-lg transition text-lg font-medium min-h-[60px]"
-                        >
-                            Create Itinerary
-                        </button>
                     </div>
                 );
 
@@ -855,37 +1405,80 @@ export function ItineraryForm() {
                 </div>
             </header>
 
+
             {/* Main Content */}
             <div className="max-w-7xl mx-auto px-6 py-8">
                 <div className="mb-8">
-                    <div className="flex items-center justify-between mb-4">
-                        {steps.map((step, index) => {
-                            const Icon = step.icon;
-                            const isActive = currentStep === step.id;
-                            const isCompleted = currentStep > step.id;
+                    {/* Mobile Progress Bar */}
+                    <div className="md:hidden mb-4">
+                        <div className="overflow-x-auto scrollbar-hide">
+                            <div className="flex items-center space-x-2 min-w-max px-1 pb-2">
+                                {steps.map((step, index) => {
+                                    const Icon = step.icon;
+                                    const isActive = currentStep === step.id;
+                                    const isCompleted = currentStep > step.id;
 
-                            return (
-                                <div key={step.id} className="flex items-center justify-center">
-                                    <div className={`flex items-center justify-center w-12 h-12 rounded-full border-2 transition-all ${isCompleted
-                                        ? 'bg-purple border-purple text-white'
-                                        : isActive
-                                            ? 'bg-purple border-purple text-white'
-                                            : 'bg-white border-gray-300 text-gray-400'
-                                        }`}>
-                                        {isCompleted ? <FaCheck /> : <Icon />}
-                                    </div>
-                                    <div className="ml-3 text-sm">
-                                        <p className={`font-medium ${isActive ? 'color-purple' : isCompleted ? 'color-purple' : 'text-gray-400'}`}>
-                                            {step.title}
-                                        </p>
-                                    </div>
-                                    {index < steps.length - 1 && (
-                                        <div className={`hidden md:block w-16 h-0.5 mx-4 ${isCompleted ? 'bg-purple' : 'bg-gray-300'
-                                            }`} />
-                                    )}
-                                </div>
-                            );
-                        })}
+                                    return (
+                                        <div key={step.id} className="flex items-center flex-shrink-0">
+                                            <div className="flex flex-col items-center min-w-[60px]">
+                                                <div className={`flex items-center justify-center w-8 h-8 rounded-full border-2 transition-all ${isCompleted
+                                                    ? 'bg-purple border-purple text-white'
+                                                    : isActive
+                                                        ? 'bg-purple border-purple text-white'
+                                                        : 'bg-white border-gray-300 text-gray-400'
+                                                    }`}>
+                                                    {isCompleted ? <FaCheck size={10} /> : <Icon size={10} />}
+                                                </div>
+                                                <div className="mt-1 text-center">
+                                                    <p className={`text-xs font-medium ${isActive ? 'color-purple' : isCompleted ? 'color-purple' : 'text-gray-400'}`}>
+                                                        {step.title}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            {index < steps.length - 1 && (
+                                                <div className={`w-6 h-0.5 mx-1 flex-shrink-0 ${isCompleted ? 'bg-purple' : 'bg-gray-300'}`} />
+                                            )}
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Desktop Progress Bar */}
+                    <div className="hidden md:block mb-4">
+                        <div className="overflow-x-auto scrollbar-hide">
+                            <div className="flex items-center justify-between min-w-max">
+                                {steps.map((step, index) => {
+                                    const Icon = step.icon;
+                                    const isActive = currentStep === step.id;
+                                    const isCompleted = currentStep > step.id;
+
+                                    return (
+                                        <div key={step.id} className="flex items-center flex-1 min-w-[140px]">
+                                            <div className="flex items-center">
+                                                <div className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all ${isCompleted
+                                                    ? 'bg-purple border-purple text-white'
+                                                    : isActive
+                                                        ? 'bg-purple border-purple text-white'
+                                                        : 'bg-white border-gray-300 text-gray-400'
+                                                    }`}>
+                                                    {isCompleted ? <FaCheck size={14} /> : <Icon size={14} />}
+                                                </div>
+                                                <div className="ml-2 text-sm">
+                                                    <p className={`font-medium whitespace-nowrap ${isActive ? 'color-purple' : isCompleted ? 'color-purple' : 'text-gray-400'}`}>
+                                                        {step.title}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            {index < steps.length - 1 && (
+                                                <div className={`flex-1 h-0.5 mx-3 min-w-[20px] ${isCompleted ? 'bg-purple' : 'bg-gray-300'}`} />
+                                            )}
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
                     </div>
 
                     <div className="w-full bg-gray-200 rounded-full h-2">
@@ -906,7 +1499,7 @@ export function ItineraryForm() {
                         disabled={currentStep === 1}
                         className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition ${currentStep === 1
                             ? 'bg-gray-200 text-gray-700 cursor-not-allowed'
-                            : 'bg-gray-300 text-gray-700 hover:bg-gray-300'
+                            : 'bg-gray-300 text-gray-700 hover:bg-gray-400'
                             }`}
                     >
                         <FaArrowLeft />
@@ -915,10 +1508,10 @@ export function ItineraryForm() {
 
                     <button
                         onClick={nextStep}
-                        disabled={currentStep === 6}
-                        className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition ${currentStep === 6
+                        disabled={currentStep === steps.length}
+                        className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition ${currentStep === steps.length
                             ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                            : 'bg-purple text-white'
+                            : 'bg-purple text-white hover:bg-purple-700'
                             }`}
                     >
                         Next

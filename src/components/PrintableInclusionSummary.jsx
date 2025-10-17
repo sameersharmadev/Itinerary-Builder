@@ -1,32 +1,28 @@
 import React from 'react';
 
-const PrintableHotelBookings = ({ hotels }) => {
-  const formatDate = (dateString) => {
-    if (!dateString) return '';
-    const date = new Date(dateString);
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const year = date.getFullYear();
-    return `${day}/${month}/${year}`;
-  };
-
-  if (!hotels || hotels.length === 0) {
+const PrintableInclusionSummary = ({ inclusionSummary }) => {
+  if (!inclusionSummary || inclusionSummary.length === 0) {
     return null;
   }
 
-  const getRowHeight = (hotel) => {
-    const lines = hotel.hotelName.split('\n').length;
-    return Math.max(60, 32 + (lines * 20));
+  const getRowHeight = (item) => {
+    const categoryLines = item.category.split('\n').length;
+    const countLines = item.count.toString().split('\n').length;
+    const detailsLines = item.details.split('\n').length;
+    const commentsLines = item.comments.split('\n').length;
+    const maxLines = Math.max(categoryLines, countLines, detailsLines, commentsLines);
+    return Math.max(60, 32 + (maxLines * 20)); 
   };
 
-  const isLastRow = (index) => index === hotels.length - 1;
+  const isLastRow = (index) => index === inclusionSummary.length - 1;
 
   return (
     <div className="w-full mb-8 print:break-inside-avoid">
       <h2 className="text-2xl font-bold mb-6" style={{ color: '#000000' }}>
-        Hotel <span style={{ color: '#9333EA' }}>Bookings</span>
+        Inclusion <span style={{ color: '#9333EA' }}>Summary</span>
       </h2>
 
+      {/* Table with separate columns */}
       <div className="mb-6 flex gap-2">
         <div className="flex-1">
           <div 
@@ -36,25 +32,26 @@ const PrintableHotelBookings = ({ hotels }) => {
               borderRadius: '16px 16px 0 0'
             }}
           >
-            City
+            Category
           </div>
           <div>
-            {hotels.map((hotel, index) => (
+            {inclusionSummary.map((item, index) => (
               <div 
                 key={index}
                 className="px-4 py-4 text-center text-sm text-black flex items-center justify-center"
                 style={{ 
                   background: '#F3E5FF',
-                  height: `${getRowHeight(hotel)}px`,
+                  height: `${getRowHeight(item)}px`,
                   borderRadius: isLastRow(index) ? '0 0 16px 16px' : '0'
                 }}
               >
-                {hotel.city}
+                {item.category}
               </div>
             ))}
           </div>
         </div>
 
+        {/* Count Column */}
         <div className="flex-1">
           <div 
             className="px-4 py-3 text-center font-medium text-white text-sm"
@@ -63,25 +60,26 @@ const PrintableHotelBookings = ({ hotels }) => {
               borderRadius: '16px 16px 0 0'
             }}
           >
-            Check In
+            Count
           </div>
           <div>
-            {hotels.map((hotel, index) => (
+            {inclusionSummary.map((item, index) => (
               <div 
                 key={index}
                 className="px-4 py-4 text-center text-sm text-black flex items-center justify-center"
                 style={{ 
                   background: '#F3E5FF',
-                  height: `${getRowHeight(hotel)}px`,
+                  height: `${getRowHeight(item)}px`,
                   borderRadius: isLastRow(index) ? '0 0 16px 16px' : '0'
                 }}
               >
-                {formatDate(hotel.checkIn)}
+                {item.count}
               </div>
             ))}
           </div>
         </div>
 
+        {/* Details Column */}
         <div className="flex-1">
           <div 
             className="px-4 py-3 text-center font-medium text-white text-sm"
@@ -90,25 +88,26 @@ const PrintableHotelBookings = ({ hotels }) => {
               borderRadius: '16px 16px 0 0'
             }}
           >
-            Check Out
+            Details
           </div>
           <div>
-            {hotels.map((hotel, index) => (
+            {inclusionSummary.map((item, index) => (
               <div 
                 key={index}
                 className="px-4 py-4 text-center text-sm text-black flex items-center justify-center"
                 style={{ 
                   background: '#F3E5FF',
-                  height: `${getRowHeight(hotel)}px`,
+                  height: `${getRowHeight(item)}px`,
                   borderRadius: isLastRow(index) ? '0 0 16px 16px' : '0'
                 }}
               >
-                {formatDate(hotel.checkOut)}
+                {item.details}
               </div>
             ))}
           </div>
         </div>
 
+        {/* Comments Column */}
         <div className="flex-1">
           <div 
             className="px-4 py-3 text-center font-medium text-white text-sm"
@@ -117,67 +116,38 @@ const PrintableHotelBookings = ({ hotels }) => {
               borderRadius: '16px 16px 0 0'
             }}
           >
-            Nights
+            Comments
           </div>
           <div>
-            {hotels.map((hotel, index) => (
+            {inclusionSummary.map((item, index) => (
               <div 
                 key={index}
                 className="px-4 py-4 text-center text-sm text-black flex items-center justify-center"
                 style={{ 
                   background: '#F3E5FF',
-                  height: `${getRowHeight(hotel)}px`,
+                  height: `${getRowHeight(item)}px`,
                   borderRadius: isLastRow(index) ? '0 0 16px 16px' : '0'
                 }}
               >
-                {hotel.nights}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="flex-1">
-          <div 
-            className="px-4 py-3 text-center font-medium text-white text-sm"
-            style={{ 
-              background: '#321E5D',
-              borderRadius: '16px 16px 0 0'
-            }}
-          >
-            Hotel Name
-          </div>
-          <div>
-            {hotels.map((hotel, index) => (
-              <div 
-                key={index}
-                className="px-4 py-4 text-center text-sm text-black flex items-center justify-center"
-                style={{ 
-                  background: '#F3E5FF',
-                  height: `${getRowHeight(hotel)}px`,
-                  borderRadius: isLastRow(index) ? '0 0 16px 16px' : '0'
-                }}
-              >
-                <div className="flex flex-col items-center">
-                  {hotel.hotelName.split('\n').map((line, i) => (
-                    <span key={i} className="block">{line}</span>
-                  ))}
-                </div>
+                {item.comments}
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      <div className="text-sm text-gray-800 space-y-1 mb-4">
-        <p><strong>1.</strong> All Hotels Are Tentative And Can Be Replaced With Similar.</p>
-        <p><strong>2.</strong> Breakfast Included For All Hotel Stays</p>
-        <p><strong>3.</strong> All Hotels Will Be 4* And Above Category</p>
-        <p><strong>4.</strong> A maximum occupancy of 2 people/room is allowed in most hotels.</p>
+      {/* Transfer Policy Section */}
+      <div className="">
+        <h3 className="text-xs font-bold text-black">Transfer Policy (Refundable Upon Claim)</h3>
+        <p className="text-xs text-gray-700">
+          If Any Transfer Is Delayed Beyond 15 Minutes, Customers May Book An App-Based Or Radio Taxi And Claim A Refund For That Specific Leg.
+        </p>
       </div>
 
-      <hr className="border-t border-gray-300" />
+      {/* Horizontal Line */}
+      <hr className="border-t border-gray-300 mt-6" />
     </div>
   );
 };
 
-export default PrintableHotelBookings;
+export default PrintableInclusionSummary;
