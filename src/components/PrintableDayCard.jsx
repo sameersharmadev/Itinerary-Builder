@@ -1,10 +1,15 @@
 import React, { useRef, useEffect, useState } from 'react';
+import day1 from '../assets/days_placeholder/day1.png';
+import day2 from '../assets/days_placeholder/day2.png';
+import day3 from '../assets/days_placeholder/day3.png';
 
 const PrintableDayCard = ({ dayNumber, dayData, departureDate }) => {
   const morningDotRef = useRef(null);
   const eveningDotRef = useRef(null);
   const timelineRef = useRef(null);
   const [lineStyle, setLineStyle] = useState({});
+
+  const dayImages = [day1, day2, day3];
 
   const formatDate = (date) => {
     const options = { day: 'numeric', month: 'short' };
@@ -41,6 +46,11 @@ const PrintableDayCard = ({ dayNumber, dayData, departureDate }) => {
     }
     const lines = activities.split('\n').filter(line => line.trim() !== '');
     return lines.map(line => line.startsWith('•') ? line : `• ${line}`).join('\n');
+  };
+
+  const getDayImage = () => {
+    const imageIndex = (dayNumber - 1) % dayImages.length;
+    return dayImages[imageIndex];
   };
 
   useEffect(() => {
@@ -87,7 +97,7 @@ const PrintableDayCard = ({ dayNumber, dayData, departureDate }) => {
         <div className="flex gap-12 items-stretch">
           <div className="flex flex-col gap-1 items-center justify-center w-48 flex-shrink-0">
             <img
-              src={`/src/assets/days_placeholder/day${dayNumber}.png`}
+              src={getDayImage()}
               alt={`Day ${dayNumber}`}
               className="rounded-lg"
               style={{ width: "180px", height: "180px", objectFit: "cover" }}
