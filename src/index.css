@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+}
+
+input{
+  &:focus {
+    outline: none;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-custom {
+    background: linear-gradient(90deg, #4BA1EB 0%, #936FE0 100%);
+  }
+  .color-purple{
+    color: #321E5D;
+  }
+  .bg-purple{
+    background-color: #321E5D;
+  }
+}
