@@ -189,18 +189,6 @@ export function ItineraryForm() {
             },
             {
                 city: "Singapore",
-                activity: "Marina Bay Sands SkyPark",
-                type: "Sightseeing",
-                timeRequired: "2-3 Hours"
-            },
-            {
-                city: "Singapore",
-                activity: "Chinatown Walking Tour",
-                type: "Cultural",
-                timeRequired: "2-3 Hours"
-            },
-            {
-                city: "Singapore",
                 activity: "Sentosa Island",
                 type: "Leisure",
                 timeRequired: "Half Day"
